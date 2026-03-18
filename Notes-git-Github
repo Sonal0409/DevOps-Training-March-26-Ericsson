@@ -99,6 +99,75 @@ Copy the last commit id not the recent commit id
 # git log --oneline
 
 all the commits will be deleted. only 1 commit will remain
+========================================
+
+Demo 7 : Branching and Merging
+
+Command to see how many branches do we have in out local repo:
+
+$ git branch
+
+
+$ git status ⇒ working tree should be clean
+
+
+Command to create a branch with name as feature1
+
+$ git branch feature1
+
+Command to switch to branch with name feature1
+
+$ git checkout feature1
+
+Switched to branch feature1
+
+Create a new file on the branch feature1
+
+$ touch login
+
+$ git status
+
+Untracked file
+
+
+$ git add login
+$ git commit -m "done on branch"
+$ git log --oneline
+
+
+How to check which files on the given branch:
+
+#  git ls-tree feature1
+
+
+
+
+
+
+
+
+
+Demo 8: Merging the feature1 branch to master branch
+========================
+
+By merging we mean 
+
+The source branch → login has commits that will be merged to destination branch master
+
+Always Switch to the destination branch where we have to merge
+
+$ git checkout master
+
+$ git merge feature1 master
+
+$ git log --oneline
+
+All commits of login are present in master also, login file is also there on master branch
+
+=====================================
+Demo 10: Delete a Branch : 
+
+# git branch -d feature1
 
 
 
