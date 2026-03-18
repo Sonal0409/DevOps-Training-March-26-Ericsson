@@ -169,6 +169,107 @@ Demo 9: Delete a Branch :
 
 # git branch -d feature1
 
+======================================================
+Create a GITHUB account as shown below:
+
+To create account in github:
+
+https://github.com/
+
+
+
+Click on signup
+
+Given valid email address
+Give password
+Give username
+Click on continue.
+
+
+
+An email will be sent on your mail id
+Verify the email
+And create the account
+
+> Login to github
+
+
+
+
+
+
+
+
+
+
+
+Continue for free
+
+
+
+
+
+
+Create a repository:
+
+
+> click on New button to create a remote repo
+> Name to the repository
+> select public repo
+> click on Create repository
+
+
+
+
+
+
+
+
+Connect Local repo to remote repo
+
+Go to git and execute this command
+
+  $ git remote add origin <your remote repo Path>
+
+Example like this:
+…
+ git remote add origin https://github.com/Sonal0409/myproject27June_sonal.git
+…
+
+Execute the command to check local and remote repo is set:
+
+  $ git remote -v
+
+
+Create a Personal Access token on GITHUB to push your changes
+
+Personal access tokens (classic) function like ordinary OAuth access tokens. They can be used instead of a password for Git over HTTPS
+
+GO to this link:  https://github.com/settings/tokens
+
+
+
+Push Changes to GITHUB repo
+==============================================
+# git push origin master
+
+Here origin means variable storing path of remote repo 
+
+
+It will now ask to enter username
+
+Username for 'https://github.com':
+
+Here enter the token and press enter key
+
+Again it will ask for password
+
+Password for 'https://ghp_mJ92gregYqNggrggd8AY1NxkWpYigter345Q6PHAM7VxuLg26F4wB@github.com':
+
+JUST PRESS ENTER KEY, do not enter anything for password
+
+It will send the files and commits to remote.
+
 
 
 
