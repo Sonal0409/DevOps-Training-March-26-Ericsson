@@ -165,7 +165,7 @@ $ git log --oneline
 All commits of login are present in master also, login file is also there on master branch
 
 =====================================
-Demo 10: Delete a Branch : 
+Demo 9: Delete a Branch : 
 
 # git branch -d feature1
 
