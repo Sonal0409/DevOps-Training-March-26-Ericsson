@@ -271,6 +271,15 @@ JUST PRESS ENTER KEY, do not enter anything for password
 It will send the files and commits to remote.
 
 
+PULL Workflow command
+========================================
+Create a new file on the remote repository master branch
+
+Now go to lab machine and execute below command
+
+  	# git pull origin master
+
+Pull command will fetch new files and changes and merge them with local repo and working directory
 
 
 
