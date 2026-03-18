@@ -58,9 +58,10 @@ Demo 4:Jenkins maven Integration
 Go to jenkins--> new item--> Name= Package==> freestyle project
 ==> source codemanagement==>select git==> give git repo name https://github.com/Sonal0409/DevOpsCodeDemo.git
  
-build ==> invoke top level maven target==>mymaven
+Go to build Steps ==> Click on Add build Step --> select the option --> invoke top level maven target==>mymaven
 
- goal = package
+Sleect my maven from drop down
+write goal as package
 
 ==> save==> build now
 ==> click on build number and see the console
