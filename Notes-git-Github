@@ -6,3 +6,15 @@
 # git config --global user.name admin01
 
 # git config --global user.email admin@gmail.com
+
+Demo 1:
+==================
+Create a working directory and Local repository
+
+# mkdir myproject
+# cd myproject
+# touch index1.html index2.html
+# ls
+# git init
+# ls -al 
+.git folder will be present 
