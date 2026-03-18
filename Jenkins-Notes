@@ -1,0 +1,46 @@
+Demo 1: Create a Jenkisn job that will execute linux commands.
+
+Create a new job in jenkins
+Click on + sign to create new item/job/project
+Give a name to the job : Job1
+Select freestyle project and click on OK button
+Go to build Steps→ select Execute Shell→ give commands like
+touch file1
+echo “hello Jenkins!”
+
+Save the job → click on build Now button.
+
+
+See the console output and check the workspace directory.
+
+
+
+
+
+
+
+Demo 2: Jenkins Integration with Git and Github-> Source code management tool
+
+Demo 2: Create a Jenkisn job that will clone a github repository in jenkins workspace
+
+Create a new job in jenkins
+Click on + sign to create new item/job/project
+Give a name to the job : CloneRepo
+Select freestyle project and click on OK button
+On the project click on Source code management
+Select git option
+Give git hub repo path
+https://github.com/Sonal0409/myproject-08sep-sonal.git
+
+Branch name as ===>  Master
+
+Save the job
+
+Click on Build now
+
+Repository will be cloned in jenkins workspace
+
+You can go to job → workspace folder to see the files
+
+
+================================================
