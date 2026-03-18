@@ -52,6 +52,20 @@ Select Poll SCM --> * * * * *
 Save the job. Make chnages on the repo . check the jenkisn dashboard, job is run
 Build will be generated each time there is a change in the repository only.
 
+Demo 4:Jenkins maven Integration
+
+==================================================================
+Go to jenkins--> new item--> Name= Package==> freestyle project
+==> source codemanagement==>select git==> give git repo name https://github.com/Sonal0409/DevOpsCodeDemo.git
+ 
+build ==> invoke top level maven target==>mymaven
+
+ goal = package
+
+==> save==> build now
+==> click on build number and see the console
+
+==> go to workspace ==> target/addressbook.war
 
 
 
