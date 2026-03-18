@@ -42,6 +42,30 @@ Demo 3: check git logs
 
 # git show <commitid>
 
+# git log --stat --oneline
+
+Demo 4: Modify a file and add it to the local repository
+==================================================
+
+# echo "New changes added " > index1.html
+
+# git status
+
+# git commit -a -m "added modification"
+
+# git log --oneline
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
