@@ -1,7 +1,11 @@
 
 # git --version
 
+Become a root user
+
 # sudo su -
+
+Setup Get configurations
 
 # git config --global user.name admin01
 
