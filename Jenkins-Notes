@@ -44,3 +44,27 @@ You can go to job → workspace folder to see the files
 
 
 ================================================
+Demo 3:Trigger by POLL SCM
+============================================================
+In the same job --> click on configure button --> click on Triggers
+Select Poll SCM --> * * * * *
+
+Save the job. Make chnages on the repo . check the jenkisn dashboard, job is run
+Build will be generated each time there is a change in the repository only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
