@@ -22,3 +22,15 @@ Create a working directory and Local repository
 # git init
 # ls -al 
 .git folder will be present 
+
+Demo 2: Add files to staging and commit to local repo for VC
+=======================================================
+# git status
+
+# git add .
+
+# git commit -m "added files of HTML"
+
+# git ls-files 
+
+# git status
