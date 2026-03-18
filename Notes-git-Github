@@ -55,6 +55,41 @@ Demo 4: Modify a file and add it to the local repository
 
 # git log --oneline
 
+Demo 5: Delete file and revert it
+================================
+
+Delete a file from LR and WD
+
+# git rm index1.html
+
+# ls
+
+# git ls-files
+
+File will not be there
+
+# git status
+
+# git commit -m "deleted file"
+
+# git log --oneline
+
+Revert the commit to get the file again in LR and WD
+
+# git revert fffe13d --no-edit
+
+# ls
+
+# git ls-files
+
+Revert command generates a new commit id
+
+# git log --oneline
+
+
+
+
+
 
 
 
