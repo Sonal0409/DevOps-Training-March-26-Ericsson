@@ -34,3 +34,14 @@ Demo 2: Add files to staging and commit to local repo for VC
 # git ls-files 
 
 # git status
+
+Demo 3: check git logs
+==================================================
+
+# git log --oneline
+
+# git show <commitid>
+
+
+
+
