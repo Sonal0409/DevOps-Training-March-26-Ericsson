@@ -86,6 +86,29 @@ Revert command generates a new commit id
 
 # git log --oneline
 
+==================================================
+Demo 6: Reset Commit History
+=================================================
+
+# git log --oneline
+
+Copy the last commit id not the recent commit id
+
+# git reset --hard <commitid>
+
+# git log --oneline
+
+all the commits will be deleted. only 1 commit will remain
+
+
+
+
+
+
+
+
+
+
 
 
 
