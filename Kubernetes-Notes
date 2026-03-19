@@ -47,6 +47,35 @@ Create a POD:
 
 # kubectl describe pod pod1
 
+Create multi container POD YAML file
+=======================================
+# mkdir mykubefiles
+
+# cd mykubefiles
+
+# vim multi-pod.yml
+
+apiVersion: v1
+kind: Pod
+metadata:
+   name: pod2
+   labels: # used to query pods in the cluster
+     author: sonal
+     app: webserver
+spec:
+    containers:
+    - name: c1
+      image: nginx
+    - name: c2
+      image: tomcat
+
+Save the file
+
+Run the code
+
+# kubectl create -f multi-pod.yml
+
+# kubectl get pods -o wide
 
 
 
