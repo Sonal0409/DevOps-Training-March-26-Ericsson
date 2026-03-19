@@ -102,3 +102,42 @@ systemport:containerport
 > if you want docker to do port mapping then use flag -P
 
 # docker run --name web2 -d -P httpd
+
+Execute a command on the container and attach to its terminal
+=============================================
+
+# docker ps -a 
+
+container should be up and port mapping is done
+
+# docker exec -it <containerid/name> /bin/bash
+
+You will be on the container
+
+Now go to 
+
+# cd usr/share/nginx/html
+
+# ls
+
+# echo "Learning Docker today!" > index.html
+
+go to browser, refresh the page, you will see the updated message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
