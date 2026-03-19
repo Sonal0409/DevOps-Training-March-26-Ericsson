@@ -146,6 +146,9 @@ press ESC key
 give :wq
 press enter key
 
+Create Index.html file 
+# echo "Code deployed using dockerfile" > index.html
+
 Build the image
 
 # docker build -t myimagenginx .
