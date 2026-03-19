@@ -69,6 +69,81 @@ write goal as package
 ==> go to workspace ==> target/addressbook.war
 
 
+================================================================
+ Jenkins Pipeline to build java code using Maven
+
+
+pipeline{
+
+
+    agent any
+    // here any = keyword given by jenkins
+    // here any = any available server where jenkisn can run the pipeline
+    // rightnow the available server the ec2 machien where jenkisn is installed
+    // so any = current machine
+   
+    tools{
+        maven 'mymaven'
+    }
+    // here mymaven = version of the maven that we configured in tools section of Jenkins
+
+
+    stages{
+        stage('Clone the Repo'){
+            steps{
+               git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+               // here git fucntion assumes branch is master
+            }
+        }
+        stage('Compile the code'){
+            steps{
+              sh 'mvn compile'
+              // if using windows give:  bat 'mvn compile'
+            }
+        }
+         stage('Test the code'){
+            steps{
+              sh 'mvn test'
+              // if using windows give:  bat 'mvn compile'
+            }
+        }
+         stage('Build the code'){
+            steps{
+              sh 'mvn package'
+              // if using windows give:  bat 'mvn compile'
+            }
+        }
+    }
+}
+==========================================================
+
+
+
+Jenkinsfile
+
+Always write and maintain the pipeline code in Version control tool github on the given branchIn jenkins we will create a job → obtain the pipeline code and execute it.
+
+The name of the file is always Jenkinsfile
+This file has no extension.
+This file is preferred to be in the root directory of the repo
+
+But if we have to create pipeline for a different branch we cna but the jenkins file in that particular branch
+
+You have a repository with multiple branches
+We want to create pipeline jobs for each branch except for production branch
+The pipeline job should be created automatically for each branch and the name of Pipeline job should be the same as the branch name.
+
+So how can we create this??
+We have to use the concept of Jenkinsfile
+
+Step 1:
+
+As devops eng.. We will add Jenkinsfile in every branch for which pipeline job has to be created
+We will not add any Jenkinsfile in the production branch as I do not want any pipeline job for it.
+
+Step 2:
+In jenkins we have to create 1 job → that will scan your repo and every branch for jenkisfile
+This job will create pipeline job for the branch that meets the criteria(jenkisnfile present)
 
 
 
