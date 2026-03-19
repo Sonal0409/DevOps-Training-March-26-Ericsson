@@ -124,6 +124,45 @@ Now go to
 
 go to browser, refresh the page, you will see the updated message
 
+=======================================================
+Dockerfile:
+====================================================
+Demo: Build dockerfile to create custom image and custom container
+
+# docker rm -f $(docker ps -aq)
+# mkdir mydockerfile
+# cd mydockerfile
+# vim dockerfile
+
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install nginx -y
+COPY index.html /var/www/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+Save the file:
+press ESC key
+give :wq
+press enter key
+
+Build the image
+
+# docker build -t myimagenginx .
+
+Run the image
+# docker run -d -P myimagenginx
+
+
+
+
+
+
+
+
+
+
+
 
 
 
