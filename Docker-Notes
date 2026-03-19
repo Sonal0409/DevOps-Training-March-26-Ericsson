@@ -156,6 +156,89 @@ Build the image
 Run the image
 # docker run -d -P myimagenginx
 
+====================================
+Docker Jenkins - CICD pipeline
+===================================
+
+run this command on terminal, so Jenkins can run docker commands
+
+# chmod -R 777 /var/run/docker.sock
+
+Now go to jenkins app on browser
+
+localhost:8080
+
+Create a new job of type pipeline
+
+Select pipeline option on left side and add below code
+
+pipeline {
+
+agent any 
+
+tools{
+         maven 'mymaven'
+}
+
+stages{
+  stage('Clone Code') {
+    steps {
+      git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+      // fetches soruce code, test cases and dockerfile
+     }
+    }
+  stage('Compile Code') {
+    steps {
+      sh 'mvn compile'
+     }
+    }
+    stage('Review Code') {
+    steps {
+      sh 'mvn pmd:pmd'
+     }
+    }
+    stage('Test Code') {
+    steps {
+      sh 'mvn test'
+     }
+    }
+    stage('Build Code') {
+    steps {
+      sh 'mvn package'
+     }
+    }
+     stage('Deploy Code') {
+    steps {
+     sh 'docker build -t myimagejava .'
+     sh 'docker run -d -P myimagejava'
+     }
+    }
+
+}
+
+}
+
+
+Save the page and run the pipeline.
+
+On the terminal
+
+# docker images
+
+# docker ps -a
+
+copy the portnumber and access app from browser
+
+localhost:portnumber/addressbook
+
+
+
+
+
+
+
+
+
 
 
 
