@@ -1,0 +1,49 @@
+Setup Kubernetes Master and Worker Node
+
+Connect to Desktop 1 of lab:
+=====================================
+
+  # sudo kubeadm init --ignore-preflight-errors=all
+
+Execute the below commands to setup kubectl and apiserver communication
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+   ## install networking driver -- Weave/flannel/canal/calico etc...
+
+   ## below installs calico networking driver
+
+   kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/calico.yaml
+
+   # Validate:  kubectl get nodes
+
+
+Generate TOKEN
+
+kubeadm token create --print-join-command
+
+COpy the generated token
+
+open the desktop 2 of lab - it will be worker node
+
+paste the token on the Desktop 2
+
+
+Come back to master:
+
+# kubectl get nodes
+
+
+
+
+
+
+
+
+
+
+
+
