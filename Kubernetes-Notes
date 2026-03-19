@@ -37,6 +37,17 @@ Come back to master:
 
 # kubectl get nodes
 
+========================================
+Create a POD:
+========================================
+
+# kubectl run pod1 --image nginx
+
+# kubectl get pods -o wide
+
+# kubectl describe pod pod1
+
+
 
 
 
