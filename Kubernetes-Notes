@@ -28,7 +28,9 @@ COpy the generated token
 
 open the desktop 2 of lab - it will be worker node
 
-paste the token on the Desktop 2
+# sudo su -
+
+paste the token on the Desktop 2 and enter
 
 
 Come back to master:
