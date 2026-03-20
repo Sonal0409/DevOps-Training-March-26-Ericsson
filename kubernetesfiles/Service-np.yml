@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysvc-nodeport
+  name: mysvc
 spec:
   type: NodePort
   selector: 
@@ -10,4 +10,4 @@ spec:
     - targetPort: 80  # container port
       port: 80   # service port
       nodePort: 30009  # port on the VM/node where the service is exposed
-       # NP range is 30000-32767
+   
