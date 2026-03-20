@@ -1,0 +1,174 @@
+Demo 1: Create Access key and Secret key on AWS and configure it on the machine where Terraform is present.
+
+In AWs we will go to Service called as -> IAM 
+Over these we will create a new user and then create security credentials
+In AWS 
+GO TO IAM dashboard > On the left side click on Users > click on create user > give a username > click next > select Attach policies directly > select AdministratorAccess below >> click on next > click on create user.
+Now lets attach an access key and secret key to the user.
+Click on username>> click on security credentials > Select Access keys> click on create access key
+ > select Command Line Interface (CLI)
+> click on I understand the above recommendation and want to proceed to create an access key. > press next > click on create access key
+
+
+
+Store AWS credentials in a shared credentials file and then use it in the TF config file.
+In this way your accesskey and secret key will not be exposed to the outside world.
+
+# apt-get update
+
+# apt-get install awscli -y
+
+# aws configure
+
+Give the valid access key
+
+Give the valid secret key
+
+Press enter, no need to give any region and format option
+To verify if the credentials have been set for aws
+
+# cat ~/.aws/credentials
+
+Demo2: Terraform init - Terraform provider block
+
+# mkdir myterraformfiles
+
+# cd myterraformfiles
+
+# vim aws_infra.tf
+
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+Save the file and we will install aws provider plugin
+
+# terraform init
+
+
+DEMO 3: Resource block - Terraform validate, plan, apply
+Go to aws and fetch the latest ami id for the region
+This ami id will not work
+
+# vim aws_infra.tf
+
+
+Add this block of code
+
+resource "aws_instance" "myec2" {
+
+  ami           = "ami-063d43db0594b521b"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Instance1"
+  
+}
+ 
+Save the file.
+
+# terraform validate
+
+# terraform plan
+# terraform  apply 
+Give yes
+DEMO 4: Destroy Resources
+
+# terraform destroy
+
+Give yes
+
+DEMO 5: COUNT META LOOP ARGUMENT
+# vim awsinfra.tf
+
+resource "aws_instance" "myec2"{
+
+ami = "ami-0de716d6197524dd9"
+instance_type = "t2.micro"
+
+tags = {
+    Name = "instance-1"
+  }
+count = 5
+
+}
+
+# terraform apply
+
+5 instance will be created in AWS
+
+
+Destroy single resource
+
+# terraform destroy -target resource.aws_instance.myec2[0]
+
+============================================================
+
+TERRAFORM CLOUD
+========================================
+
+In terraform cloud hasicorp provides terraform as service on the internet.
+This service is given with Terraform Enterprise but a trial version is also available for community
+On the terraform cloud, you can login with valid email and password and run the TF config code.
+You don’t write tF code on the Cloud rather we maintain it in any VC tool like github. Bitbucket, gitlab and so on..
+Terraform Cloud supports workspaces in order to store environment specific state file
+Terraform Cloud allows us to store variables of type environment and secrets. These variables can then be used in the config files.
+Terraform cloud will show you all the execution history of the initialization, plan and apply done on the provider.
+Like on CLI we create directories to maintain TF files, on the cloud you can create Projects
+A project in TF cloud is nothing but a container.
+Terraform Cloud we can create organization that container projects and workspaces
+In the cloud we can add roles and permission who can run the code 
+HCP Terraform organizes your infrastructure resources by workspaces. A workspace contains infrastructure resources, variables, state data, and run history
+
+Demo:
+=================================
+
+Go to below URL and create new account for terraformcloud
+
+
+https://app.terraform.io/public/signup/account
+
+
+
+You will be on organizations pge
+
+Create organization
+
+
+
+
+You will be on workspace page
+Click on version control workflow
+
+
+
+
+
+
+Select github.com→ select your repo→ click on the repo name → you will on configure settings
+
+
+
+Click on continue to setup workspace
+
+
+
+
+
+
+Click on configure variables → Click on add variable→ select environment
+
+
+Give key as : AWS_ACCESS_KEY_ID
+Value as accesskey id create din aws
+
+Give key as : AWS_SECRET_ACCESS_KEY
+Value as secret key created in aws
+
+
+Now lets click on run
+
+
+After the run → go to organization → click on settings→ click on policy set→ create it
+
