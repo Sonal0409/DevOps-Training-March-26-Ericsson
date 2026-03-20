@@ -181,6 +181,88 @@ Rollout undo of deployment:
 
 Refresh the browser-> you will see v1
 
+======================================================================
+Horizontal Pod Autoscaler:
+======================================================================
+
+Install Metric Server:
+
+# kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+# wget -c  https://gist.githubusercontent.com/initcron/1a2bd25353e1faa22a0ad41ad1c01b62/raw/008e23f9fbf4d7e2cf79df1dd008de2f1db62a10/k8s-metrics-server.patch.yaml
+# kubectl patch deploy metrics-server -p "$(cat k8s-metrics-server.patch.yaml)" -n kube-system
+
+
+Create Deployment:
+
+# kubectl create -f https://raw.githubusercontent.com/Sonal0409/DevOps-Training-March-26-Ericsson/refs/heads/master/kubernetesfiles/deployment-hpa.yml
+# kubectl get all
+
+
+Create service:
+
+# kubectl create -f https://raw.githubusercontent.com/Sonal0409/DevOps-Training-March-26-Ericsson/refs/heads/master/kubernetesfiles/service-hpa.yml
+# kubectl get all
+# kubectl top pods
+
+Deploy the HPA
+
+# kubectl create -f https://raw.githubusercontent.com/Sonal0409/DevOps-Training-March-26-Ericsson/refs/heads/master/kubernetesfiles/hpa.yml
+# kubectl get all
+
+Open a new terminal on the lab and run this command
+
+# sudo su -
+
+# kubectl get svc nginx-svc
+
+Copy the Cluster IP address of your nginx-svc
+Upadate the ipaddress in below command:
+
+
+# kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://Cluster-IP:80; done"
+Leave this termianl as it is
+
+Go to back to previous terminal and run below commands
+
+# kubectl get pods
+
+# kubectl top pods
+
+You will see pods have increased
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
