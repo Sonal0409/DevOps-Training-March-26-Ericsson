@@ -143,6 +143,71 @@ Deployment YAML in kubernetes
 
 # kubectl get all
 
+Scale up or scale down pods
+
+# kubectl scale deployment mydeploy --replicas=10
+
+Scale down:
+
+# kubectl scale deployment mydeploy --replicas=1
+
+Create service to access form browser
+
+# kubectl create -f https://raw.githubusercontent.com/Sonal0409/DevOps-Training-March-26-Ericsson/refs/heads/master/kubernetesfiles/service.yml
+
+# kubectl get all
+
+Go to browser and give url : 
+
+localhost:30009
+
+Now come back to terminal --> update Image 
+
+kubectl set image deployment mydeploy c1=leaddevops/kubeserve:v2
+
+# kubectl get deployment -o wide
+
+# kubectl get pods
+
+Refresh the browser-> you will see v2
+
+Rollout undo of deployment:
+
+# kubectl rollout undo deployment mydeploy
+
+# kubectl get deployment -o wide
+
+# kubectl get pods
+
+Refresh the browser-> you will see v1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
