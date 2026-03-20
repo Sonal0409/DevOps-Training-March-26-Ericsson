@@ -231,7 +231,74 @@ copy the portnumber and access app from browser
 
 localhost:portnumber/addressbook
 
+================================================
+Docker Volumes:
+================================================
 
+Docker Volumes
+
+NAMED VOLUMES
+Use case 1: Preserve data of the container on the docker host, even if container is deleted, Data should be persistent
+
+Create a volume on the host machine where we will preserve data of container 
+
+# docker volume create myvol 
+
+         It creates a directory in /var/lib/docker/volumes folder
+
+See details of the volume : 
+
+#  docker volume inspect myvol
+
+Mount the volume on the container : 
+  # docker run -it -v myvol:/tmp ubuntu
+
+You will be on the container
+
+Create 2 files in /tmp directory 
+
+# cd /tmp
+# touch contfile1 contfile2
+
+Come out the container 
+
+Go to volume directory : 
+
+# cd /var/lib/docker/volumes/myvol/_data 
+
+# ls 
+
+Containers data will be available.
+
+Now delete the container 
+
+# docker rm -f <container id> 
+
+But data will still be there in the volumes directory.
+
+BIND MOUNT VOLUME
+
+In this type of volume, any directory on the VM can be taken and mounted on the container during runtime.
+
+We have a repository where developers are maintaining the application code.
+
+https://github.com/Sonal0409/ecomm.git
+
+
+We want to deploy this application on a httpd container. Get the above code on the docker host machine. We also want to access the ecomm application from the browser 
+
+
+# git clone https://github.com/Sonal0409/ecomm.git
+
+#  docker run --name myweb -d -P  -v /root/ecomm:/usr/local/apache2/htdocs/    httpd
+
+# docker ps -a
+
+copy the port number
+
+Go to broswer and access the application
+
+localhost:<portnumber>
 
 
 
