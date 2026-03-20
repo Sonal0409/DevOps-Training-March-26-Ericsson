@@ -132,6 +132,16 @@ save the file
 go to the browser
 
 localhost:30007
+============================================================
+Deployment YAML in kubernetes
+
+# kubectl delete all --all
+
+# kubectl get pods
+
+# kubectl create -f https://raw.githubusercontent.com/Sonal0409/DevOps-Training-March-26-Ericsson/refs/heads/master/kubernetesfiles/deployment.yml
+
+# kubectl get all
 
 
 
